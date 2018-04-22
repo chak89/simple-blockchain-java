@@ -9,12 +9,13 @@ public class Block {
 	private String data;
 	
 	
-	
+	//Block constructor
 	public Block(int blocknumber, String previousHash, String data) {
 		this.blocknumber = blocknumber;
 		this.previousHash = previousHash;
 		this.timeStamp = Instant.now().toEpochMilli();
 		this.data = data;
+		this.hash = calculateHash();
 	}
 	
 	
