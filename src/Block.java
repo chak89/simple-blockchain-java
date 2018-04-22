@@ -16,4 +16,13 @@ public class Block {
 		this.timeStamp = Instant.now().toEpochMilli();
 		this.data = data;
 	}
+	
+	
+	//Helper function for calculating the hash
+	public String calculateHash() {
+		
+		String stringtoHash = previousHash + Long.toString(timeStamp) + data;
+		String hashedString = HashSHA256.sha256(stringtoHash);
+		return hashedString;
+	}
 }
