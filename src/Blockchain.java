@@ -16,5 +16,22 @@ public class Blockchain {
 		String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);		
 		System.out.println(blockchainJson);
 
+		System.out.println(validChain());
+		
+	}
+	
+	//Check chains integrity
+	public static Boolean validChain() {
+
+		for(int i=blockchain.size()-1; i>0; i--) {
+			Block latestBlock = blockchain.get(i);
+			Block previousBlock = blockchain.get(i-1);
+			
+			if(!latestBlock.previousHash.equals(previousBlock.hash)) {
+				System.out.println("Latest block previous hash doesn't match previous block hash");
+				return false;
+			}
+		}
+		return true;
 	}
 }
