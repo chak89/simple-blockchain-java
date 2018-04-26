@@ -1,1 +1,2 @@
-"# simple-blockchain-java" 
+# A simple blockchain in Java.
+
